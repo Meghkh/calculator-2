@@ -4,20 +4,30 @@ from arithmetic_revised import *
 
 while True:
     user_input = raw_input("> ")
+    user_input = user_input.strip()
     tokens = user_input.split(" ")
+    operator = tokens[0]
 
     if "q" in tokens:
         print "You will exit."
         break
 
-    elif len(tokens) < 2:
-        print "Not enough inputs."
-        continue
+    elif operator == "square" or operator == "cube":
+        if len(tokens) < 2:
+            print "Not enough inputs."
+            continue
+    elif operator == "+" or operator == "-" or operator == "*" or operator == "/" or operator == "pow" or operator == "mod":
+        if len(tokens) < 3:
+            print "Not enough inputs."
+            continue
 
     operands = []
-    operator = tokens[0]
+
     for i in range(1, len(tokens)):
-        operands.append(tokens[i])
+        if tokens[i].isdigit():
+            operands.append(tokens[i])
+        else:
+            print "Skipping non-number input"
 
     # if len(tokens) < 3:
     #     num2 = "0"
@@ -61,11 +71,11 @@ while True:
     elif operator == "mod":
         result = mod(operands)
 
-    elif operator == "x+":
-        result = add_mult(operands)
+    # elif operator == "x+":
+    #     result = add_mult(operands)
 
-    elif operator == "cubes+":
-        result = add_cubes(operands)
+    # elif operator == "cubes+":
+    #     result = add_cubes(operands)
 
     else:
         result = "Please enter an operator followed by any number of integers."
