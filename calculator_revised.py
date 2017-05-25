@@ -1,4 +1,6 @@
-"""A prefix-notation calculator."""
+"""A prefix-notation calculator.
+
+Handles multiple inputs as a list"""
 
 from arithmetic_revised import *
 

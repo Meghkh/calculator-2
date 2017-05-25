@@ -1,6 +1,8 @@
 """
     Revised arithmetic file to handle any number of number inputs
 
+    Handles multiple inputs as a list
+
 """
 
 def add(lst):
